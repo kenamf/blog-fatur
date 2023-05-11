@@ -1,0 +1,38 @@
+<template>
+  <div class="home">
+    <h1>Home</h1>
+    <PostList v-if="showPosts" :posts="posts" />
+    <button @click="showPosts = !showPosts">Unmounted</button>
+    <button @click="posts.pop()">Delete Post</button>
+  </div>
+</template>
+
+<script>
+import PostList from '../components/PostList.vue'
+import { ref } from 'vue'
+
+export default {
+  name: 'Home',
+  components: {
+    PostList
+  },
+  setup() {
+    const posts = ref([
+      {
+        id: 1,
+        title: 'Artikel Pertama di Februari',
+        body: 'Abyssinian american shorthair panther. Munchkin kitty lynx. Tabby british shorthair so bobcat. Tomcat savannah but tiger or cheetah. Grimalkin bengal and russian blue yet siamese. Leopard burmese but turkish angora siberian or siberian thai. Bengal kitten turkish angora thai or bombay but birman panther. Thai siberian and grimalkin. Puma savannah. Malkin abyssinian for ocicat. Kitten ocelot savannah or birman, so singapura. Cornish rex tomcat. Sphynx egyptian mau birman so american bobtail siamese and donskoy so tabby. Manx. Siberian cheetah so birman. Mouser singapura or persian so manx. Kitty lion, yet russian blue and leopard. Lion tom yet bombay yet turkish angora, bombay but ragdoll and tabby.'
+      },
+      {
+        id: 2,
+        title: 'Artikel Kedua di Februari',
+        body: 'Abyssinian american shorthair panther. Munchkin kitty lynx. Tabby british shorthair so bobcat. Tomcat savannah but tiger or cheetah. Grimalkin bengal and russian blue yet siamese. Leopard burmese but turkish angora siberian or siberian thai. Bengal kitten turkish angora thai or bombay but birman panther. Thai siberian and grimalkin. Puma savannah. Malkin abyssinian for ocicat. Kitten ocelot savannah or birman, so singapura. Cornish rex tomcat. Sphynx egyptian mau birman so american bobtail siamese and donskoy so tabby. Manx. Siberian cheetah so birman. Mouser singapura or persian so manx. Kitty lion, yet russian blue and leopard. Lion tom yet bombay yet turkish angora, bombay but ragdoll and tabby.'
+      }
+    ])
+
+    const showPosts = ref(true)
+
+    return { posts, showPosts }
+  }
+}
+</script>
